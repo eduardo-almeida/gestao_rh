@@ -1,6 +1,10 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from .models import Colaborador
+from django.views.generic import ListView
 
 
-def home(request):
-    return HttpResponse('Ola')
+class ColaboradoresList(ListView):
+    model = Colaborador
+
+    def get_queryset(self):
+        empresa_logada = self.request.user.colaborador.empresa
+        return Colaborador.objects.filter(empresa=empresa_logada)

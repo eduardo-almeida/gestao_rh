@@ -7,12 +7,13 @@
         </div>
         <div class="col-sm">
             tres {{ usuario.colaborador.nome }}
+            <a href="{% url 'list_funcionarios' %}">Gerenciar Funcionarios</a>
         </div>
         <div class="col-sm">
-            {% if usuario.colaborador.empresa%}
-                <a href="">Editar Empresa</a>
+            {% if usuario.colaborador.empresa %}
+                <a href="{% url 'edit_empresa' usuario.colaborador.empresa.id %}">Editar Empresa</a>
             {% else %}
-                <a href="">Criar Empresa</a>
+                <a href="{% url 'create_empresa' %}">Criar Empresa</a>
             {% endif%}
         </div>
         <div class="col-sm">
