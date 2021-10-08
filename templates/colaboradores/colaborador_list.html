@@ -2,6 +2,8 @@
 
 {% block main%}
     {% for colaborador in object_list %}
-        {{ colaborador }} <br>
+        <a href="{% url 'update_colaboradores' colaborador.id %}"> {{ colaborador }} </a>
+        <a href="{% url 'delete_colaboradores' colaborador.id %}"> Deletar </a>
+        <br>
     {% endfor%}
 {% endblock %}
