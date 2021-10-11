@@ -8,6 +8,7 @@
         <div class="col-sm">
             tres {{ usuario.colaborador.nome }}
             <a href="{% url 'list_colaboradores' %}">Gerenciar Colaboradores</a>
+            <a href="{% url 'list_departamentos' %}">Gerenciar Departamentos</a>
         </div>
         <div class="col-sm">
             {% if usuario.colaborador.empresa %}
