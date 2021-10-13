@@ -1,5 +1,9 @@
+import json
+
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 
 from .form import RegistroHoraExtraForm
@@ -50,3 +54,13 @@ class HoraExtraCreate(CreateView):
         kwargs.update({'user': self.request.user})
         return kwargs
 
+class UtilizouHoraExtra(View):
+    def post(self, *args, **kwargs):
+        registro_hora_extra = RegistroHoraExtra.objects.get(id=kwargs['pk'])
+        registro_hora_extra.utilizada = True
+        registro_hora_extra.save()
+
+        colaborador = self.request.user.colaborador
+        response = json.dumps({'mensagem': 'Requisicao executada', 'horas': float(colaborador.total_horas_extras)})
+
+        return HttpResponse(response, content_type='application/json')
