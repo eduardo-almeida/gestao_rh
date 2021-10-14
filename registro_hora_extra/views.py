@@ -1,3 +1,4 @@
+import csv
 import json
 
 from django.http import HttpResponse
@@ -64,3 +65,17 @@ class UtilizouHoraExtra(View):
         response = json.dumps({'mensagem': 'Requisicao executada', 'horas': float(colaborador.total_horas_extras)})
 
         return HttpResponse(response, content_type='application/json')
+
+class ExportarParaCSV(View):
+    def get(self, request):
+        filename = 'arquivo'
+        response = HttpResponse(content_type='text/csv')
+        response['content-Disposition'] = 'attachment; filename=%s.csv' % filename
+
+        registro_he = RegistroHoraExtra.objects.filter(utilizada=False)
+
+        writer = csv.writer(response)
+        writer.writerow(['Id', 'Motivo', 'Funcionario', 'Horas'])
+        for registro in registro_he:
+            writer.writerow([registro.id, registro.motivo, registro.colaborador, registro.horas])
+        return response
