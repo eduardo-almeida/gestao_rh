@@ -7,5 +7,6 @@
         <br>
     {% endfor%}
     <a href="{% url 'create_hora_extra' %}" class="btn btn-info"> Novo </a>
-    <a href="{% url 'exportar_csv' %}" class="btn btn-danger"> CSV </a>
+    <a href="{% url 'exportar_csv' %}" class="btn btn-info"> CSV </a>
+    <a href="{% url 'exportar_excel' %}" class="btn btn-info"> Excel </a>
 {% endblock %}
