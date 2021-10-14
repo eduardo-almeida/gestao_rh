@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'documentos',
     'registro_hora_extra',
     'inicio',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
