@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'registro_hora_extra',
     'inicio',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
