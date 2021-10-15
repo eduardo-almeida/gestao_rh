@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block main%}
     <div class="row">
         <div class="col-sm">
-            um
+            {% trans "One, two, three columns" %}
         </div>
         <div class="col-sm">
             tres {{ usuario.colaborador.nome }}
