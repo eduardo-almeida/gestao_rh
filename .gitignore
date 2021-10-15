@@ -2,3 +2,4 @@ gestao
 *.sqlite3
 .idea
 *.pyc
+local_settings.py

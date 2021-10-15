@@ -68,6 +68,14 @@ DATABASES = {
     'antigo': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'dbantigo.sqlite3',
+    },
+    'postgres': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'curso',
+        'USER': 'useradmin',
+        'PASSWORD': 'password123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -115,3 +123,5 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
 DATABASES_ROUTERS = ['gestao_rh.DBRoutes.DBRoutes']
+
+from .local_settings import *
