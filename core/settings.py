@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'documentos',
     'registro_hora_extra',
     'inicio',
+    'app_antiga',
     'rest_framework',
     'rest_framework.authtoken',
 ]
@@ -63,6 +64,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'antigo': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'dbantigo.sqlite3',
     }
 }
 
@@ -108,3 +113,5 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'login'
+
+DATABASES_ROUTERS = ['gestao_rh.DBRoutes.DBRoutes']
